@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Orçamentos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="mascara">
+        <div class="container">
+            <img src="img/logo.jpg" alt="Logo da empresa" class="logo">
+            <h1>Éto acessórios</h1>
+            <form id="orcamento-form" class="form">
+                <label for="quantidade" class="label">Quantidade de Camisetas:</label>
+                <select id="quantidade" class="select">
+                    <option value="1-10">1 a 10</option>
+                    <option value="11-20">11 a 20</option>
+                    <option value="20+">20+</option>
+                </select>
+                <div id="camisetas-estampadas">
+                    <!-- Campos para preencher com quantidade -->
+                </div>
+                <h2>Total: R$<span id="total">0.00</span></h2>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
