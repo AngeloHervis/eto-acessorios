@@ -1,119 +1,51 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var defaultOption = '1-10';
-    var selectElement = document.getElementById('quantidade');
-    selectElement.value = defaultOption;
-    // Disparar evento 'change' após definir a opção padrão
-    selectElement.dispatchEvent(new Event('change'));
-  });
 
-document.getElementById('quantidade').addEventListener('change', function() {
-    var selectedOption = this.value;
-    var camisetasEstampadas = document.getElementById('camisetas-estampadas');
-    var total = 0;
+function calcularPrecos(formId) {
+    const form = document.getElementById(formId);
+    const quantidade = parseInt(form.querySelector('input[type="number"]').value);
+    let precoCamiseta = 0;
+    let precoEstampas = 0;
 
-  
-    camisetasEstampadas.innerHTML = '';
-  
-    if (selectedOption === '1-10') {
-      camisetasEstampadas.innerHTML = `
-        <label for="pp-gg">Camisetas PP ao GG:</label>
-        <input type="number" id="pp-gg" min="0" value="0"><br>
-        <label for="xg-maiores">Camisetas XG ou Maiores:</label>
-        <input type="number" id="xg-maiores" min="0" value="0"><br>
-        <label for="estampa-bolso">Estampa de Bolso (10x10 cm):</label>
-        <input type="number" id="estampa-bolso" min="0" value="0"><br>
-        <label for="estampa-manga">Estampa de Manga (5x5 cm):</label>
-        <input type="number" id="estampa-manga" min="0" value="0"><br>
-        <label for="estampa-meia-costas">Estampa Meia Costas (30x20 cm):</label>
-        <input type="number" id="estampa-meia-costas" min="0" value="0"><br>
-        <label for="estampa-costas-inteira">Estampa Costas Inteira (30x40 cm):</label>
-        <input type="number" id="estampa-costas-inteira" min="0" value="0"><br>
-        <label for="estampa-nome">Estampa Nome (30x8 cm):</label>
-        <input type="number" id="estampa-nome" min="0" value="0"><br>
-      `;
-    } else if (selectedOption === '11-20') {
-      camisetasEstampadas.innerHTML = `
-      <label for="pp-gg">Camisetas PP ao GG:</label>
-      <input type="number" id="pp-gg" min="0" value="0"><br>
-      <label for="xg-maiores">Camisetas XG ou Maiores:</label>
-      <input type="number" id="xg-maiores" min="0" value="0"><br>
-      <label for="estampa-bolso">Estampa de Bolso (10x10 cm):</label>
-      <input type="number" id="estampa-bolso" min="0" value="0"><br>
-      <label for="estampa-manga">Estampa de Manga (5x5 cm):</label>
-      <input type="number" id="estampa-manga" min="0" value="0"><br>
-      <label for="estampa-meia-costas">Estampa Meia Costas (30x20 cm):</label>
-      <input type="number" id="estampa-meia-costas" min="0" value="0"><br>
-      <label for="estampa-costas-inteira">Estampa Costas Inteira (30x40 cm):</label>
-      <input type="number" id="estampa-costas-inteira" min="0" value="0"><br>
-      <label for="estampa-nome">Estampa Nome (30x8 cm):</label>
-      <input type="number" id="estampa-nome" min="0" value="0"><br>
-      
-      `;
-    } else if (selectedOption === '20+') {
-      camisetasEstampadas.innerHTML = `
-      <label for="pp-gg">Camisetas PP ao GG:</label>
-      <input type="number" id="pp-gg" min="0" value="0"><br>
-      <label for="xg-maiores">Camisetas XG ou Maiores:</label>
-      <input type="number" id="xg-maiores" min="0" value="0"><br>
-      <label for="estampa-bolso">Estampa de Bolso (10x10 cm):</label>
-      <input type="number" id="estampa-bolso" min="0" value="0"><br>
-      <label for="estampa-manga">Estampa de Manga (5x5 cm):</label>
-      <input type="number" id="estampa-manga" min="0" value="0"><br>
-      <label for="estampa-meia-costas">Estampa Meia Costas (30x20 cm):</label>
-      <input type="number" id="estampa-meia-costas" min="0" value="0"><br>
-      <label for="estampa-costas-inteira">Estampa Costas Inteira (30x40 cm):</label>
-      <input type="number" id="estampa-costas-inteira" min="0" value="0"><br>
-      <label for="estampa-nome">Estampa Nome (30x8 cm):</label>
-      <input type="number" id="estampa-nome" min="0" value="0"><br>
-      
-      `;
+
+    if (formId === 'form1') {
+
+        precoCamiseta = quantidade * (quantidade <= 10 ? 30 : 40);
+        precoEstampas = (quantidade <= 10 ? 5 : 4.5) * parseInt(form.querySelector('input[name^="bolsop"]').value) +
+                        (quantidade <= 10 ? 2.5 : 2.2) * parseInt(form.querySelector('input[name^="mangap"]').value) +
+                        15 * parseInt(form.querySelector('input[name^="meiacostasp"]').value) +
+                        25 * parseInt(form.querySelector('input[name^="costasp"]').value) +
+                        7.5 * parseInt(form.querySelector('input[name^="nomep"]').value);
+    } else if (formId === 'form2') {
+
+        precoCamiseta = quantidade * (quantidade <= 20 ? 28.5 : 37.5);
+        precoEstampas = (quantidade <= 20 ? 4.5 : 4) * parseInt(form.querySelector('input[name^="bolsop"]').value) +
+                        (quantidade <= 20 ? 2.2 : 2) * parseInt(form.querySelector('input[name^="mangap"]').value) +
+                        13 * parseInt(form.querySelector('input[name^="meiacostasp"]').value) +
+                        22 * parseInt(form.querySelector('input[name^="costasp"]').value) +
+                        7.5 * parseInt(form.querySelector('input[name^="nomep"]').value);
+    } else if (formId === 'form3') {
+
+        precoCamiseta = quantidade * (quantidade <= 20 ? 27 : 35);
+        precoEstampas = (quantidade <= 20 ? 4 : 3.5) * parseInt(form.querySelector('input[name^="bolsop"]').value) +
+                        (quantidade <= 20 ? 2 : 1.5) * parseInt(form.querySelector('input[name^="mangap"]').value) +
+                        12 * parseInt(form.querySelector('input[name^="meiacostasp"]').value) +
+                        20 * parseInt(form.querySelector('input[name^="costasp"]').value) +
+                        7.5 * parseInt(form.querySelector('input[name^="nomep"]').value);
     }
-  
-    var inputs = camisetasEstampadas.querySelectorAll('input');
-    inputs.forEach(function(input) {
-      input.addEventListener('change', function() {
-        calcularTotal();
-      });
+
+
+    const precoTotal = precoCamiseta + precoEstampas;
+    
+
+    const precoIndividualCamiseta = precoTotal / quantidade;
+
+
+    form.querySelector('input[name^="priceIndividual"]').value = precoIndividualCamiseta.toFixed(2);
+    form.querySelector('input[name^="totalPrice"]').value = precoTotal.toFixed(2);
+}
+
+
+document.querySelectorAll('.form').forEach(form => {
+    form.addEventListener('input', () => {
+        calcularPrecos(form.id);
     });
-  
-    function calcularTotal() {
-      total = 0;
-  
-      var ppGg = parseFloat(document.getElementById('pp-gg').value);
-      var xgMaiores = parseFloat(document.getElementById('xg-maiores').value);
-      var estampaBolso = parseFloat(document.getElementById('estampa-bolso').value);
-      var estampaManga = parseFloat(document.getElementById('estampa-manga').value);
-      var estampaMeiaCostas = parseFloat(document.getElementById('estampa-meia-costas').value);
-      var estampaCostasInteira = parseFloat(document.getElementById('estampa-costas-inteira').value);
-      var estampaNome = parseFloat(document.getElementById('estampa-nome').value);
-  
-      // Calcular total
-      if (!isNaN(ppGg)) {
-        total += ppGg * 30;
-      }
-      if (!isNaN(xgMaiores)) {
-        total += xgMaiores * 40;
-      }
-      if (!isNaN(estampaBolso)) {
-        total += estampaBolso * 5;
-      }
-      if (!isNaN(estampaManga)) {
-        total += estampaManga * 2.5;
-      }
-      if (!isNaN(estampaMeiaCostas)) {
-        total += estampaMeiaCostas * 15;
-      }
-      if (!isNaN(estampaCostasInteira)) {
-        total += estampaCostasInteira * 25;
-      }
-      if (!isNaN(estampaNome)) {
-        total += estampaNome * 7.5;
-      }
-  
-      // Atualizar o total na tela
-      document.getElementById('total').textContent = total.toFixed(2);
-    }
-  
-    calcularTotal();
-  });
-  
+});

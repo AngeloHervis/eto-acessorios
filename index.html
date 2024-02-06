@@ -9,21 +9,90 @@
 </head>
 
 <body>
-    <div class="mascara">
-        <div class="container">
-            <img src="img/logo.jpg" alt="Logo da empresa" class="logo">
-            <h1>Éto acessórios</h1>
-            <form id="orcamento-form" class="form">
-                <label for="quantidade" class="label">Quantidade de Camisetas:</label>
-                <select id="quantidade" class="select">
-                    <option value="1-10">1 a 10</option>
-                    <option value="11-20">11 a 20</option>
-                    <option value="20+">20+</option>
-                </select>
-                <div id="camisetas-estampadas">
-                    <!-- Campos para preencher com quantidade -->
+    <div class="background-image">
+        <img src="img/fundo.jpg" alt="Imagem de Fundo">
+    </div>
+    <div class="logo">
+        <img src="img/logo.jpg" alt="Logo da Empresa">
+    </div>
+    <div class="container">
+        <div class="form-column">
+            <h2>Camisetas 1 a 10</h2>
+            <form id="form1" class="form">
+                <label for="quantity1">Quantidade de camisetas:</label>
+                <input type="number" id="quantity1" name="quantity1" min="1" max="10">
+                <label for="bolsop1">Estampa de Bolso (10x10 cm):</label>
+                <input type="number" id="bolsop1" name="bolsop1" min="0">
+                <label for="mangap1">Estampa Manga (5x5 cm):</label>
+                <input type="number" id="mangap1" name="mangap1" min="0">
+                <label for="meiacostasp1">Estampa Meia Costas (30x20 cm):</label>
+                <input type="number" id="meiacostasp1" name="meiacostasp1" min="0">
+                <label for="costasp1">Estampa Costas Inteira (30x40 cm):</label>
+                <input type="number" id="costasp1" name="costasp1" min="0">
+                <label for="nomep1">Estampa Nome (30x8 cm):</label>
+                <input type="number" id="nomep1" name="nomep1" min="0">
+
+                <div>
+                    <label for="priceIndividual1">Preço Individual:</label>
+                    <input type="text" id="priceIndividual1" name="priceIndividual1" readonly>
                 </div>
-                <h2>Total: R$<span id="total">0.00</span></h2>
+                <div>
+                    <label for="totalPrice1">Preço Total:</label>
+                    <input type="text" id="totalPrice1" name="totalPrice1" readonly>
+                </div>
+            </form>
+        </div>
+        <div class="form-column">
+            <h2>Camisetas 11 a 20</h2>
+            <form id="form2" class="form">
+                <label for="quantity2">Quantidade de camisetas:</label>
+                <input type="number" id="quantity2" name="quantity2" min="11" max="20">
+                <label for="bolsop2">Estampa de Bolso (10x10 cm):</label>
+                <input type="number" id="bolsop2" name="bolsop2" min="0">
+                <label for="mangap2">Estampa Manga (5x5 cm):</label>
+                <input type="number" id="mangap2" name="mangap2" min="0">
+                <label for="meiacostasp2">Estampa Meia Costas (30x20 cm):</label>
+                <input type="number" id="meiacostasp2" name="meiacostasp2" min="0">
+                <label for="costasp2">Estampa Costas Inteira (30x40 cm):</label>
+                <input type="number" id="costasp2" name="costasp2" min="0">
+                <label for="nomep2">Estampa Nome (30x8 cm):</label>
+                <input type="number" id="nomep2" name="nomep2" min="0">
+
+                <div>
+                    <label for="priceIndividual2">Preço Individual:</label>
+                    <input type="text" id="priceIndividual2" name="priceIndividual2" readonly>
+                </div>
+                <div>
+                    <label for="totalPrice2">Preço Total:</label>
+                    <input type="text" id="totalPrice2" name="totalPrice2" readonly>
+                </div>
+            </form>
+        </div>
+        <div class="form-column">
+            <h2>Camisetas 20+</h2>
+            <form id="form3" class="form">
+                <label for="quantity3">Quantidade de camisetas:</label>
+                <input type="number" id="quantity3" name="quantity3" min="21">
+                <label for="bolsop3">Estampa de Bolso (10x10 cm):</label>
+                <input type="number" id="bolsop3" name="bolsop3" min="0">
+                <label for="mangap3">Estampa Manga (5x5 cm):</label>
+                <input type="number" id="mangap3" name="mangap3" min="0">
+                <label for="meiacostasp3">Estampa Meia Costas (30x20 cm):</label>
+                <input type="number" id="meiacostasp3" name="meiacostasp3" min="0">
+                <label for="costasp3">Estampa Costas Inteira (30x40 cm):</label>
+                <input type="number" id="costasp3" name="costasp3" min="0">
+                <label for="nomep3">Estampa Nome (30x8 cm):</label>
+                <input type="number" id="nomep3" name="nomep3" min="0">
+
+                <div>
+                    <label for="priceIndividual3">Preço Individual:</label>
+                    <input type="text" id="priceIndividual3" name="priceIndividual3" readonly>
+                </div>
+                <div>
+                    <label for="totalPrice3">Preço Total:</label>
+                    <input type="text" id="totalPrice3" name="totalPrice3" readonly>
+                </div>
+            </form>
         </div>
     </div>
 
