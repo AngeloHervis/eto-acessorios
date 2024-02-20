@@ -19,7 +19,7 @@ A página Éto Acessórios é um projeto de umna empresa que trabalhei para faci
 ## Como Utilizar
 1. Clone o repositório (`git clone https://github.com/AngeloHervis/eto-acessorios.git`).
 2. Abra o arquivo `index.html` em seu navegador web.
-3. Navegue pelo catálogo de produtos, adicione itens ao carrinho e prossiga para o processo de checkout.
+3. Obrigatório colocar "0" nos campos que não forem preenchidos.
 
 ## Autor
 Angelo Hervis
